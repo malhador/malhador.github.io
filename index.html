@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5; URL='http://example.com'" />
+    <title>Redirecionando...</title>
+</head>
+<body>
+    <p>Você está sendo direcionado para a sala de audiência.</p>
+    <p id="countdown">5</p>
+
+    <script>
+        // Função para atualizar o contador a cada segundo
+        function countdown() {
+            var seconds = 5;
+            var countdownElement = document.getElementById('countdown');
+            
+            var timer = setInterval(function() {
+                seconds--;
+                countdownElement.textContent = seconds;
+                
+                // Redireciona quando o contador chegar a 0
+                if (seconds <= 0) {
+                    clearInterval(timer);
+                    window.location.href = 'http://example.com';
+                }
+            }, 1000); // Atualiza a cada segundo
+        }
+        
+        // Inicia o contador quando a página é carregada
+        window.onload = countdown;
+    </script>
+</body>
+</html>
